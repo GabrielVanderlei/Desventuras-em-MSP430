@@ -1,11 +1,11 @@
 /*****
-// Primeiramente use o script abaixo para verificar qual o BIT que est· conectado ao LED (Pois varia de vers„o para vers„o)
+// Primeiramente use o script abaixo para verificar qual o BIT que est√° conectado ao LED (Pois varia de vers√£o para vers√£o)
 
 #include <msp430.h>
 
 int main(void)
 {
-  // Para o contador WD -> Se o sistema n„o responder em um perÌodo de tempo ele reseta.
+  // Para o contador WD -> Se o sistema n√£o responder em um per√≠odo de tempo ele reseta.
   WDTCTL = WDTPW + WDTHOLD;
   
   // Portanto, devemos utilizar o |= para setar algum valor para '1' -> Pois x+1 = 1
@@ -23,10 +23,10 @@ int main(void)
     if(!(BIT6 & P1IN)) P1OUT |= 0x01;
     if(!(BIT7 & P1IN)) P1OUT |= 0x01;
   }
-  // Envia 1 para a saÌda (P1.0)
+  // Envia 1 para a sa√≠da (P1.0)
   //P1OUT ^= 0x01;
   // ~0x01 = 11111110
-  // &= -> È necess·rio para setar o valor para '0' pois x.0 = 0
+  // &= -> √© necess√°rio para setar o valor para '0' pois x.0 = 0
   //P1OUT &= ~0x01;
   
 /*
