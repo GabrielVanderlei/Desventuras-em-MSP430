@@ -1,7 +1,7 @@
 // Existem dois LEDS na placa analisada
-// Um est· localizado em P1.0 (Verde)
-// E o outro est· localizado em P3.6 (Vermelho)
-// Caso essas informaÁıes n„o estejam funcionando em sua placa possivelmente as configuraÁıes s„o diferentes
+// Um est√° localizado em P1.0 (Verde)
+// E o outro est√° localizado em P3.6 (Vermelho)
+// Caso essas informa√ß√µes n√£o estejam funcionando em sua placa possivelmente as configura√ß√µes s√£o diferentes
 // Nesse caso recomendo analisar todas as portas setando PxDIR = 0xFF e PxOUT = OxFF
 
 #include <msp430.h>
