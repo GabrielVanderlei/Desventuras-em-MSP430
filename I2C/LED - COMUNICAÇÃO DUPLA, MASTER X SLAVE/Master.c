@@ -168,7 +168,7 @@ void slaveInicioI2C(){
 }
 
 void slaveFimI2C(){
-  // Fim do envio de dados do ciclo, n„o da transmiss„o.
+  // Fim do envio de dados do ciclo, n√£o da transmiss√£o.
   UCB0IFG &= ~UCSTPIFG;
 }
 
