@@ -1,0 +1,14 @@
+1. Write CRA(00)–send 0x3C 0x00 0x70 (8-average, 15Hz default, normal
+measurement)
+2. Write CRB(01)–send 0x3C 0x01 0xA0 (Gain=5).
+3. Write Mode(02)–send 0x3C 0x02 0x00 (Continuous–measurement mode)
+4. Wait 6 ms or monitor status register or DRDY hardware interrupt pin
+5. Loop
+ Send 0x3D 0x06 (Read all 6 bytes.) 
+15
+Convert three 16-bit 2’s compliment hex values to decimal values and assign to
+X, Y, Z respectively.
+Send 0x3C 0x03 (point to first data register 03).
+Wair about 67ms (if 15Hz rate or monitor status register or DRDY hardware
+interrupt pin.
+ End_Loop. 
