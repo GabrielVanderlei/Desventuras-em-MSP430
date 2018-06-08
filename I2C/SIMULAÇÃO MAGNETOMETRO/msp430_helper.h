@@ -114,7 +114,7 @@ void slaveFimI2C(){
 }
 
 
-void ligarLeds(){
+void habilitarLeds(){
   P3DIR |= BIT6;
   P1DIR |= BIT0;
 }

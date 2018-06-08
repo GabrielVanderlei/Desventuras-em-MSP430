@@ -21,7 +21,7 @@ int i;
 int main(void)
 {
   desligarWatchDog(); // Desliga WD
-  ligarLeds(); // Direciona os LEDS para saída
+  habilitarLeds(); // Direciona os LEDS para saída
   limparLeds(); // Limpa os resultados anteriores do LED
   configurarI2C(); // Configura o I2C para as portas específicas
   tornarMasterI2C(0x1E); // Torna a placa SLAVE de endereço 0x48
@@ -54,15 +54,17 @@ __interrupt void USCI_B0_ISR(void)
     
     if(counter < 8){
       if(dadoAnterior != dadosRecebidosI2C()){
+        if(Reg != dadosRecebidosI2C()){
           Reg = dadosRecebidosI2C(); 
+          piscarLedVerde(300);
+        }
           dadoAnterior = dadosRecebidosI2C();
       }
       
     }
     if(counter == 8){
-      counter = 0;
+      counter = 2;
       ESTADO = 1;
-      piscarLedVerde(300);
     }
     }
       P1OUT ^= BIT6;
@@ -99,6 +101,8 @@ __interrupt void USCI_B0_ISR(void)
         // Ler eixo X
         case 1: enviarDadosI2C(0x3D); break;
         case 2: enviarDadosI2C(0x06); ESTADO = 0;counter = 0;break;
+        case 3: enviarDadosI2C(0x3C); break;
+        case 4: enviarDadosI2C(0x03); counter = 0;break;
         }
         piscarLedVermelho(300);
       }

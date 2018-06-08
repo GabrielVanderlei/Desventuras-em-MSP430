@@ -21,7 +21,7 @@ int i;
 int main(void)
 {
   desligarWatchDog(); // Desliga WD
-  ligarLeds(); // Direciona os LEDS para saída
+  habilitarLeds(); // Direciona os LEDS para saída
   limparLeds(); // Limpa os resultados anteriores do LED
   configurarI2C(); // Configura o I2C para as portas específicas
   tornarSlaveI2C(0x1E); // Torna a placa SLAVE de endereço 0x48
