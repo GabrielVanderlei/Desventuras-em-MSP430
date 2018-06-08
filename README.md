@@ -3,4 +3,4 @@ Scripts iniciais que podem ajudar outras pessoas a iniciar nessa plataforma tão
 
 
 ## Verificador Lógico
-Baixe o programa de verificador lógico em https://support.saleae.com/hc/en-us/articles/115005987626-Older-Saleae-Logic-Beta-Downloads
+Baixe o programa de verificador lógico em https://support.saleae.com/hc/en-us/articles/115005987626-Older-Saleae-Logic-Beta-Downloads (Link de download mais antigo)
