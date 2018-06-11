@@ -1,8 +1,8 @@
 /*
-  Esse código deve funcionar caso o magnetometro apenas 
-  utilize um endereço de 7-bits.
-  CÓDIGO DO MASTER
-  Esse código comanda o magnetometro.
+  Esse cÃ³digo deve funcionar caso o magnetometro apenas 
+  utilize um endereÃ§o de 7-bits.
+  CÃ“DIGO DO MASTER
+  Esse cÃ³digo comanda o magnetometro.
 */
 
 #include <msp430.h>
@@ -21,10 +21,10 @@ int i;
 int main(void)
 {
   desligarWatchDog(); // Desliga WD
-  habilitarLeds(); // Direciona os LEDS para saída
+  habilitarLeds(); // Direciona os LEDS para saÃ­da
   limparLeds(); // Limpa os resultados anteriores do LED
-  configurarI2C(); // Configura o I2C para as portas específicas
-  tornarMasterI2C(0x1E); // Torna a placa SLAVE de endereço 0x48
+  configurarI2C(); // Configura o I2C para as portas especÃ­ficas
+  tornarMasterI2C(0x1E); // Torna a placa SLAVE de endereÃ§o 0x48
   ESTADO = 1; // Transforma a placa em receptor.
     P1DIR |= BIT7 + BIT6;
   P1OUT &= ~BIT6 + ~BIT7;
@@ -45,8 +45,8 @@ __interrupt void USCI_B0_ISR(void)
   case  0: break;                           // Vector  0: No interrupts
   case  2: break;                           // Vector  2: ALIFG
   case  4: break;                           // Vector  4: NACKIFG
-  case  6: slaveInicioI2C();break; // Só serve para o TX
-  case  8: slaveFimI2C();__bic_SR_register_on_exit(LPM0_bits); break;  // Só serve para o TX // Exit LPM0 if data was trans
+  case  6: slaveInicioI2C();break; // SÃ³ serve para o TX
+  case  8: slaveFimI2C();__bic_SR_register_on_exit(LPM0_bits); break;  // SÃ³ serve para o TX // Exit LPM0 if data was trans
   case 10: 
     if(ESTADO == 0){
       
@@ -56,7 +56,7 @@ __interrupt void USCI_B0_ISR(void)
       if(dadoAnterior != dadosRecebidosI2C()){
         if(Reg != dadosRecebidosI2C()){
           Reg = dadosRecebidosI2C(); 
-          piscarLedVerde(300);
+          piscarLedVerde(2);
         }
           dadoAnterior = dadosRecebidosI2C();
       }
@@ -74,7 +74,7 @@ __interrupt void USCI_B0_ISR(void)
   case 12: 
 
     __delay_cycles(100000); // Tempo de envio entre um dado e outro.
-    if(ESTADO == 1){ // Está enviando
+    if(ESTADO == 1){ // EstÃ¡ enviando
       if(configurado == 0){
             counter++;
             switch(counter){
@@ -88,7 +88,7 @@ __interrupt void USCI_B0_ISR(void)
             case 5: enviarDadosI2C(0x01); break;
             case 6: enviarDadosI2C(0xA0); break;
             
-            // Medição contínua
+            // MediÃ§Ã£o contÃ­nua
             case 7: enviarDadosI2C(0x3C); break;
             case 8: enviarDadosI2C(0x02); break;
             case 9: enviarDadosI2C(0x00); configurado = 1; counter = 0; break;
@@ -104,7 +104,7 @@ __interrupt void USCI_B0_ISR(void)
         case 3: enviarDadosI2C(0x3C); break;
         case 4: enviarDadosI2C(0x03); counter = 0;break;
         }
-        piscarLedVermelho(300);
+        piscarLedVermelho(2);
       }
       
     }
