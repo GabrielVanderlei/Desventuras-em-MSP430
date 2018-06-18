@@ -1,0 +1,1 @@
+Existem alguns exemplos muito bons no seguinte site: http://dqsoft.blogspot.com/2015/06/modulo-gy-282-bussola-triaxial.html
