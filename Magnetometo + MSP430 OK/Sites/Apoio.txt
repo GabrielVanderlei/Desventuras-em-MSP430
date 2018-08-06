@@ -1,0 +1,4 @@
+https://www.sparkfun.com/tutorials/301
+http://www.politecnica.pucrs.br/~stemmer/labproc1/apostila430/gr-relogio-hw/i2chw.c
+http://www.politecnica.pucrs.br/~stemmer/labproc1/apostila430/msp07.html
+https://e2e.ti.com/support/microcontrollers/msp430/f/166/t/381091?MSP430G2553-I2C-problem-on-while-UCB0CTL1-UCTXSTT-
